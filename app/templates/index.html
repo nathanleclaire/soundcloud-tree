@@ -21,14 +21,20 @@
 	<div class="container">
 		<div>
 			<iframe width="100%" height="166px" src="https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1848538&show_artwork=true"></iframe>
+			<pre></pre>
 		</div>
 	</div>
 	<script>
 		var iframeElement = document.querySelector('iframe');
 		var mySoundCloudWidget = SC.Widget(iframeElement);
 
+		var favoritesInfo = {{ favorites_json|tojson|safe }};
+		var dumpBox = document.getElementsByTagName('pre')[0];
+
+		dumpBox.innerHTML = JSON.stringify(favoritesInfo, undefined, 2);
+
 		window.setTimeout(function() {
-			mySoundCloudWidget.load('http://api.soundcloud.com/tracks/76824079', { show_artwork: true });
+			mySoundCloudWidget.load("http://api.soundcloud.com/tracks/76866746", { show_artwork: true });
 		}, 5000);
 	</script>
 </body>
